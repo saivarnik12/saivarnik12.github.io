@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume — Sai Varnik Kammari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f0ece3;--surface:#ffffff;--border:#d8d1c4;--amber:#e07b39;--teal:#1a7a6e;--navy:#1e2d4a;--text:#1a1612;--muted:#7a6e62;--light:#f7f4ef;--glow:rgba(224,123,57,0.3);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;cursor:none;}
+    body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.5;}
+    #cd{position:fixed;width:9px;height:9px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    #cr{position:fixed;width:38px;height:38px;border:2px solid var(--amber);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,opacity .25s;opacity:.5;}
+    #cr.on{width:56px;height:56px;opacity:1;border-color:var(--teal);}
+    .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(90px);}
+    .oa{width:500px;height:500px;top:-150px;left:-150px;background:radial-gradient(circle,rgba(224,123,57,.12),transparent 70%);animation:oa 20s ease-in-out infinite;}
+    .ob{width:400px;height:400px;bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(26,122,110,.1),transparent 70%);animation:ob 26s ease-in-out infinite;}
+    @keyframes oa{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,60px)}}
+    @keyframes ob{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,-80px)}}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(240,236,227,.75);backdrop-filter:blur(22px);border-bottom:1px solid rgba(216,209,196,.5);transition:background .3s;}
+    nav.scrolled{background:rgba(240,236,227,.95);}
+    .nl{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.12em;color:var(--amber);text-decoration:none;}
+    .nr{display:flex;gap:2rem;}
+    .na{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.15em;text-transform:uppercase;position:relative;padding:4px 0;transition:color .25s;}
+    .na::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--amber);transition:width .3s;}
+    .na:hover{color:var(--amber);}.na:hover::after,.na.act::after{width:100%;}.na.act{color:var(--amber);}
+    .ph{position:relative;z-index:2;padding:10rem 4rem 4rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;}
+    .pe{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--amber);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fl .7s .2s ease forwards;}
+    .pe::before{content:'';width:32px;height:1.5px;background:var(--amber);}
+    .pt{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);letter-spacing:.04em;line-height:.88;opacity:0;animation:fl .8s .4s ease forwards;}
+    .pt span{color:var(--amber);}
+    @keyframes fl{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+    .dbtn{display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.7rem;color:#fff;background:var(--navy);padding:.8rem 1.8rem;text-decoration:none;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;transition:all .25s;box-shadow:0 4px 16px rgba(30,45,74,.2);}
+    .dbtn:hover{background:var(--amber);transform:translateY(-3px);box-shadow:0 10px 28px var(--glow);}
+    main{position:relative;z-index:2;padding:5rem 4rem 8rem;}
+    .back{display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.13em;text-transform:uppercase;border:1.5px solid var(--border);padding:.7rem 1.3rem;border-radius:6px;transition:all .25s;margin-bottom:4rem;}
+    .back:hover{border-color:var(--amber);color:var(--amber);transform:translateX(-4px);}
+    /* RESUME LAYOUT */
+    .res-wrap{display:grid;grid-template-columns:280px 1fr;gap:5rem;}
+    /* SIDEBAR */
+    .sec-t{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--amber);letter-spacing:.25em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);}
+    .res-sec{margin-bottom:2.5rem;}
+    .ci{display:flex;flex-direction:column;margin-bottom:.8rem;}
+    .cl{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.15em;margin-bottom:.12rem;}
+    .cv{font-size:.82rem;color:var(--text);}
+    .cv a{color:var(--text);text-decoration:none;transition:color .2s;}.cv a:hover{color:var(--amber);}
+    .sg{margin-bottom:1.1rem;}
+    .sgn{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.3rem;}
+    .sgi{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);line-height:1.9;}
+    .cert-i{margin-bottom:.8rem;}
+    .cert-n{font-size:.82rem;color:var(--text);margin-bottom:.1rem;}
+    .cert-b{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--amber);letter-spacing:.1em;}
+    /* MAIN COLUMN */
+    .rname{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;letter-spacing:.06em;color:var(--text);margin-bottom:.2rem;line-height:1;}
+    .rrole{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.4rem;}
+    .rsum{font-size:.875rem;color:var(--muted);line-height:1.85;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+    .re{margin-bottom:2.2rem;padding-bottom:2.2rem;border-bottom:1px solid var(--border);transition:transform .3s;}
+    .re:hover{transform:translateX(4px);}
+    .re:last-of-type{border-bottom:none;}
+    .re-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.2rem;flex-wrap:wrap;gap:.5rem;}
+    .re-c{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.06em;color:var(--text);}
+    .re-p{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--amber);padding:.3rem .7rem;background:rgba(224,123,57,.08);border:1px solid rgba(224,123,57,.2);border-radius:4px;}
+    .re-r{font-size:.8rem;color:var(--muted);margin-bottom:1rem;font-weight:500;}
+    .re-pts{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+    .re-pts li{font-size:.83rem;color:var(--muted);line-height:1.8;display:grid;grid-template-columns:16px 1fr;gap:.4rem;}
+    .re-pts li::before{content:'▸';color:var(--amber);font-size:.7rem;margin-top:.4rem;}
+    .hl{color:var(--text);font-weight:700;}
+    .pj{margin-bottom:1.8rem;}
+    .pjn{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.3rem;}
+    .pjs{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--amber);letter-spacing:.1em;margin-bottom:.7rem;}
+    .pjp{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+    .pjp li{font-size:.82rem;color:var(--muted);line-height:1.75;display:grid;grid-template-columns:16px 1fr;gap:.4rem;}
+    .pjp li::before{content:'▸';color:var(--amber);font-size:.7rem;margin-top:.38rem;}
+    .ei{margin-bottom:.9rem;}
+    .ed{font-size:.95rem;font-weight:700;color:var(--text);}
+    .eu{font-size:.82rem;color:var(--muted);}
+    .em{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--amber);margin-top:.2rem;}
+    /* reveal */
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+    .rv.in{opacity:1;transform:translateY(0);}
+    .rvl{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease;}
+    .rvl.in{opacity:1;transform:translateX(0);}
+    footer{position:relative;z-index:2;background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 4rem;display:flex;justify-content:space-between;align-items:center;}
+    .fll{font-family:'DM Mono',monospace;font-size:.63rem;color:rgba(255,255,255,.28);letter-spacing:.12em;}
+    .frr{display:flex;gap:2rem;}
+    .faa{font-family:'DM Mono',monospace;font-size:.63rem;color:rgba(255,255,255,.28);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+    .faa:hover{color:var(--amber);}
+    @media(max-width:900px){nav{padding:0 1.5rem;}main{padding:3rem 1.5rem 5rem;}.ph{padding:8rem 1.5rem 3rem;}.res-wrap{grid-template-columns:1fr;gap:2.5rem;}footer{flex-direction:column;gap:1rem;padding:1.5rem;}}
+  </style>
+</head>
+<body>
+<div id="cd"></div><div id="cr"></div>
+<div class="orb oa"></div><div class="orb ob"></div>
+
+<nav id="nav">
+  <a href="../index.html" class="nl">SVK</a>
+  <div class="nr">
+    <a href="../index.html#skills" class="na">Skills</a>
+    <a href="Experience.html" class="na">Experience</a>
+    <a href="My_resume.html" class="na act">Resume</a>
+  </div>
+</nav>
+
+<div class="ph">
+  <div>
+    <div class="pe">Curriculum Vitae</div>
+    <h1 class="pt">My <span>Resume</span></h1>
+  </div>
+  <a href="../index.html#contact" class="dbtn">Contact Me ↗</a>
+</div>
+
+<main>
+  <a href="../index.html" class="back rv">← Back to Portfolio</a>
+
+  <div class="res-wrap">
+    <!-- SIDEBAR -->
+    <aside class="rvl">
+      <div class="res-sec">
+        <div class="sec-t">Contact</div>
+        <div class="ci"><span class="cl">Email</span><span class="cv"><a href="/cdn-cgi/l/email-protection#314250584750435f585a71565c50585d1f525e5c"><span class="__cf_email__" data-cfemail="a9dac8c0dfc8dbc7c0c2e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a></span></div>
+        <div class="ci"><span class="cl">Phone</span><span class="cv"><a href="tel:+919381488080">+91 93814 88080</a></span></div>
+        <div class="ci"><span class="cl">Location</span><span class="cv">Hyderabad, Telangana</span></div>
+        <div class="ci"><span class="cl">GitHub</span><span class="cv"><a href="https://github.com/Saivarnik12" target="_blank">github.com/Saivarnik12</a></span></div>
+        <div class="ci"><span class="cl">LinkedIn</span><span class="cv"><a href="https://linkedin.com/in/kammari-sai-varnik143b9416a" target="_blank">linkedin/kammari-sai-varnik</a></span></div>
+      </div>
+      <div class="res-sec">
+        <div class="sec-t">Technical Skills</div>
+        <div class="sg"><div class="sgn">Languages</div><div class="sgi">Java · Python · JavaScript · SQL</div></div>
+        <div class="sg"><div class="sgn">Frameworks</div><div class="sgi">Spring Boot · JPA/Hibernate · Express.js</div></div>
+        <div class="sg"><div class="sgn">Databases</div><div class="sgi">MySQL · PostgreSQL · MongoDB · SQLite</div></div>
+        <div class="sg"><div class="sgn">Cloud & DevOps</div><div class="sgi">AWS (EC2, S3, RDS) · Docker · Jenkins · GitHub Actions</div></div>
+        <div class="sg"><div class="sgn">Tools</div><div class="sgi">Git · Postman · Swagger · Linux</div></div>
+        <div class="sg"><div class="sgn">Concepts</div><div class="sgi">OOP · REST APIs · Microservices · CI/CD · JWT · Agile</div></div>
+      </div>
+      <div class="res-sec">
+        <div class="sec-t">Education</div>
+        <div class="ei"><div class="ed">B.Tech — Computer Science</div><div class="eu">Lovely Professional University</div><div class="em">2018 – 2022 · CGPA: 7.23</div></div>
+      </div>
+      <div class="res-sec">
+        <div class="sec-t">Certifications</div>
+        <div class="cert-i"><div class="cert-n">Programming & OOP in Java</div><div class="cert-b">Infosys</div></div>
+        <div class="cert-i"><div class="cert-n">DSA in Java</div><div class="cert-b">Infosys</div></div>
+        <div class="cert-i"><div class="cert-n">DBMS with HSQL</div><div class="cert-b">Infosys</div></div>
+        <div class="cert-i"><div class="cert-n">Programming in Python</div><div class="cert-b">EBox</div></div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="rv">
+      <div class="rname">SAI VARNIK KAMMARI</div>
+      <div class="rrole">Software Engineer · Java · Spring Boot · Backend</div>
+      <p class="rsum">Software Engineer with ~1 year of experience building scalable Java-based applications and supporting high-volume operational systems. Strong expertise in Java, Spring Boot, REST API development, SQL optimization, and containerized deployments. Hands-on experience in production incident analysis, transaction workflows, and system reliability improvements. Passionate about clean architecture and delivering maintainable, secure software. <strong>Available to join immediately.</strong></p>
+
+      <div class="sec-t">Professional Experience</div>
+      <div class="re">
+        <div class="re-h"><span class="re-c">Infosys</span><span class="re-p">NOV 2024 – MAY 2025</span></div>
+        <div class="re-r">System Engineer</div>
+        <ul class="re-pts">
+          <li><span>Developed Java-based backend modules using OOP, collections framework, and structured exception handling.</span></li>
+          <li><span>Optimized SQL queries improving data retrieval efficiency by <span class="hl">25%</span>.</span></li>
+          <li><span>Reduced runtime exceptions by <span class="hl">30%</span> through input validation and centralized error handling.</span></li>
+          <li><span>Built and consumed RESTful services in a microservices-oriented architecture.</span></li>
+          <li><span>Participated in Agile ceremonies: sprint planning, code reviews, and defect resolution.</span></li>
+        </ul>
+      </div>
+      <div class="re">
+        <div class="re-h"><span class="re-c">Amazon</span><span class="re-p">APR 2024 – OCT 2024</span></div>
+        <div class="re-r">Support Operations Specialist</div>
+        <ul class="re-pts">
+          <li><span>Improved resolution accuracy by <span class="hl">20%</span> through systematic investigation of data discrepancies.</span></li>
+          <li><span>Performed root cause analysis and collaborated with technical teams on corrective measures.</span></li>
+          <li><span>Managed <span class="hl">30–40+ operational tickets</span> weekly while maintaining SLA compliance.</span></li>
+        </ul>
+      </div>
+
+      <div class="sec-t" style="margin-top:1rem;">Projects</div>
+      <div class="pj">
+        <div class="pjn">Full-Stack E-Commerce Web Application</div>
+        <div class="pjs">Spring Boot · React · JWT · PostgreSQL · Docker · Tailwind CSS</div>
+        <ul class="pjp">
+          <li><span>Production-style app with Spring Boot APIs and React frontend.</span></li>
+          <li><span>JWT authentication, role-based auth (Admin/Customer), Docker containerization.</span></li>
+          <li><span>Controller–Service–Repository architecture; APIs validated via Postman.</span></li>
+        </ul>
+      </div>
+      <div class="pj">
+        <div class="pjn">Employee Management System</div>
+        <div class="pjs">Java · Spring Boot · MySQL · JUnit</div>
+        <ul class="pjp">
+          <li><span>CRUD REST APIs with validation, pagination, global exception handling.</span></li>
+          <li><span>SQL optimization — <span class="hl">30% backend performance improvement</span>.</span></li>
+          <li><span>JUnit testing and SOLID architecture principles.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="fll">SAI VARNIK KAMMARI · SOFTWARE ENGINEER · HYDERABAD</div>
+  <div class="frr">
+    <a href="../index.html" class="faa">Home</a>
+    <a href="Experience.html" class="faa">Experience</a>
+    <a href="https://github.com/Saivarnik12" target="_blank" class="faa">GitHub</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,.re,.sg').forEach(el=>{el.addEventListener('mouseenter',()=>cr.classList.add('on'));el.addEventListener('mouseleave',()=>cr.classList.remove('on'));});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggl
