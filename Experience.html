@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience — Sai Varnik Kammari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f0ece3;--surface:#ffffff;--border:#d8d1c4;--amber:#e07b39;--amber2:#c45e1e;--teal:#1a7a6e;--navy:#1e2d4a;--text:#1a1612;--muted:#7a6e62;--light:#f7f4ef;--glow:rgba(224,123,57,0.3);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;cursor:none;}
+    body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.5;}
+    #cd{position:fixed;width:9px;height:9px;background:var(--amber);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    #cr{position:fixed;width:38px;height:38px;border:2px solid var(--amber);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,opacity .25s;opacity:.5;}
+    #cr.on{width:56px;height:56px;opacity:1;border-color:var(--teal);}
+    .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(90px);}
+    .oa{width:500px;height:500px;top:-150px;left:-150px;background:radial-gradient(circle,rgba(224,123,57,.12),transparent 70%);animation:oa 20s ease-in-out infinite;}
+    .ob{width:400px;height:400px;bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(26,122,110,.1),transparent 70%);animation:ob 26s ease-in-out infinite;}
+    @keyframes oa{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,60px)}}
+    @keyframes ob{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,-80px)}}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:68px;background:rgba(240,236,227,.75);backdrop-filter:blur(22px);border-bottom:1px solid rgba(216,209,196,.5);transition:background .3s;}
+    nav.scrolled{background:rgba(240,236,227,.95);}
+    .nl{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.12em;color:var(--amber);text-decoration:none;}
+    .nr{display:flex;gap:2rem;align-items:center;}
+    .na{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.15em;text-transform:uppercase;position:relative;padding:4px 0;transition:color .25s;}
+    .na::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--amber);transition:width .3s;}
+    .na:hover{color:var(--amber);}
+    .na:hover::after,.na.act::after{width:100%;}
+    .na.act{color:var(--amber);}
+    /* HEADER */
+    .ph{position:relative;z-index:2;padding:10rem 4rem 5rem;border-bottom:1px solid var(--border);}
+    .pe{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--amber);letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fl .7s .2s ease forwards;}
+    .pe::before{content:'';width:32px;height:1.5px;background:var(--amber);}
+    .pt{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,9rem);letter-spacing:.04em;line-height:.88;opacity:0;animation:fl .8s .4s ease forwards;}
+    .pt span{color:var(--amber);}
+    @keyframes fl{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    /* BACK */
+    .back{display:inline-flex;align-items:center;gap:.7rem;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);text-decoration:none;letter-spacing:.13em;text-transform:uppercase;border:1.5px solid var(--border);padding:.7rem 1.3rem;border-radius:6px;transition:all .25s;margin-bottom:4rem;}
+    .back:hover{border-color:var(--amber);color:var(--amber);transform:translateX(-4px);}
+    /* SECTION */
+    main{position:relative;z-index:2;padding:5rem 4rem 8rem;}
+    .sdiv{display:flex;align-items:center;gap:1.5rem;margin-bottom:4rem;}
+    .sl{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--amber);letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;}
+    .sline{flex:1;height:1px;background:var(--border);}
+    /* TIMELINE */
+    .tl{position:relative;}
+    .tl::before{content:'';position:absolute;top:0;bottom:0;left:0;width:1.5px;background:linear-gradient(to bottom,var(--amber),rgba(26,122,110,.3),transparent);}
+    .tli{display:grid;grid-template-columns:200px 1fr;gap:0 3.5rem;margin-bottom:0;padding-bottom:4.5rem;position:relative;}
+    .tli::before{content:'';position:absolute;left:-6px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 16px rgba(224,123,57,.5);transition:transform .3s;}
+    .tli:hover::before{transform:scale(1.4);}
+    .tl-l{padding-left:2.5rem;}
+    .tc{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.06em;color:var(--text);display:block;margin-bottom:.4rem;}
+    .tp{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--amber);display:block;margin-bottom:.8rem;padding:.3rem .7rem;background:rgba(224,123,57,.08);border:1px solid rgba(224,123,57,.2);border-radius:4px;display:inline-block;}
+    .tt{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);padding:.25rem .65rem;border:1px solid var(--border);border-radius:4px;display:inline-block;letter-spacing:.1em;}
+    .tl-r{padding-top:.1rem;}
+    .tr{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.35rem;}
+    .td{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--teal);letter-spacing:.1em;margin-bottom:1.3rem;}
+    .tpts{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+    .tpts li{font-size:.875rem;color:var(--muted);line-height:1.8;display:grid;grid-template-columns:18px 1fr;gap:.4rem;}
+    .tpts li::before{content:'▸';color:var(--amber);font-size:.7rem;margin-top:.42rem;}
+    .hl{color:var(--text);font-weight:700;}
+    .ttags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem;}
+    .tg{font-family:'DM Mono',monospace;font-size:.62rem;padding:.25rem .7rem;border-radius:100px;border:1px solid rgba(26,122,110,.3);color:var(--teal);transition:all .2s;cursor:default;}
+    .tg:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+    /* card hover lift */
+    .tl-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:4rem;margin-left:2.5rem;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+    .tl-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,var(--amber),var(--teal));transform:scaleY(0);transform-origin:top;transition:transform .4s cubic-bezier(.4,0,.2,1);}
+    .tl-card:hover{transform:translateX(6px);box-shadow:0 16px 48px rgba(0,0,0,.09);border-color:rgba(224,123,57,.35);}
+    .tl-card:hover::before{transform:scaleY(1);}
+    /* reveal */
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+    .rv.in{opacity:1;transform:translateY(0);}
+    footer{position:relative;z-index:2;background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 4rem;display:flex;justify-content:space-between;align-items:center;}
+    .fl{font-family:'DM Mono',monospace;font-size:.63rem;color:rgba(255,255,255,.28);letter-spacing:.12em;}
+    .fr{display:flex;gap:2rem;}
+    .fa{font-family:'DM Mono',monospace;font-size:.63rem;color:rgba(255,255,255,.28);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+    .fa:hover{color:var(--amber);}
+    @media(max-width:900px){nav{padding:0 1.5rem;}main{padding:3rem 1.5rem 5rem;}.ph{padding:8rem 1.5rem 3rem;}.tli{grid-template-columns:1fr;}.tl-l{padding-left:2rem;}footer{flex-direction:column;gap:1rem;padding:1.5rem;}}
+  </style>
+</head>
+<body>
+<div id="cd"></div><div id="cr"></div>
+<div class="orb oa"></div><div class="orb ob"></div>
+
+<nav id="nav">
+  <a href="../index.html" class="nl">SVK</a>
+  <div class="nr">
+    <a href="../index.html#skills" class="na">Skills</a>
+    <a href="Experience.html" class="na act">Experience</a>
+    <a href="My_resume.html" class="na">Resume</a>
+  </div>
+</nav>
+
+<div class="ph">
+  <div class="pe">Work History</div>
+  <h1 class="pt">Professional <span>Experience</span></h1>
+</div>
+
+<main>
+  <a href="../index.html" class="back rv">← Back to Portfolio</a>
+
+  <div class="sdiv rv"><span class="sl">// 01 — Full-Time Roles</span><div class="sline"></div></div>
+
+  <div class="tl">
+    <!-- INFOSYS -->
+    <div class="tli rv">
+      <div class="tl-l">
+        <span class="tc">Infosys</span>
+        <span class="tp">NOV 2024 – MAY 2025</span>
+        <span class="tt">Full-Time</span>
+      </div>
+      <div class="tl-r tl-card">
+        <div class="tr">System Engineer</div>
+        <div class="td">Java · Spring Boot · REST APIs · Microservices · SQL</div>
+        <ul class="tpts">
+          <li><span>Developed and tested Java-based backend modules applying OOP principles, collections framework, and structured exception handling to improve code maintainability.</span></li>
+          <li><span>Designed and optimized complex SQL queries, improving data retrieval efficiency by <span class="hl">25%</span> in internal applications.</span></li>
+          <li><span>Implemented input validation and centralized error handling, reducing runtime exceptions by <span class="hl">30%</span> in test environments.</span></li>
+          <li><span>Built and consumed RESTful services in a microservices-oriented architecture, enabling modular and scalable service communication across distributed components.</span></li>
+          <li><span>Participated in Agile ceremonies: sprint planning, peer code reviews, and defect resolution cycles — consistently delivering within sprint timelines.</span></li>
+          <li><span>Contributed to debugging, performance tuning, and root cause analysis to enhance overall application reliability.</span></li>
+        </ul>
+        <div class="ttags">
+          <span class="tg">Java</span><span class="tg">Spring Boot</span><span class="tg">REST APIs</span>
+          <span class="tg">Microservices</span><span class="tg">SQL Optimization</span><span class="tg">OOP</span>
+          <span class="tg">Agile</span><span class="tg">JPA/Hibernate</span><span class="tg">Git</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AMAZON -->
+    <div class="tli rv">
+      <div class="tl-l">
+        <span class="tc">Amazon</span>
+        <span class="tp">APR 2024 – OCT 2024</span>
+        <span class="tt">Full-Time</span>
+      </div>
+      <div class="tl-r tl-card">
+        <div class="tr">Support Operations Specialist</div>
+        <div class="td">Data Analysis · Operations · Root Cause Analysis · SLA Management</div>
+        <ul class="tpts">
+          <li><span>Investigated high-volume transactional and customer data discrepancies, improving resolution accuracy by <span class="hl">20%</span> through systematic root cause identification.</span></li>
+          <li><span>Performed root cause analysis on operational incidents and collaborated with cross-functional technical teams to implement corrective measures.</span></li>
+          <li><span>Analyzed structured datasets to identify workflow bottlenecks and drive process efficiency improvements.</span></li>
+          <li><span>Documented recurring issue patterns and contributed to SOP enhancements, measurably reducing repeat operational errors.</span></li>
+          <li><span>Supported automation initiatives by identifying repetitive manual processes and recommending optimization strategies.</span></li>
+          <li><span>Managed resolution of <span class="hl">30–40+ operational tickets</span> weekly while maintaining SLA compliance and quality standards.</span></li>
+        </ul>
+        <div class="ttags">
+          <span class="tg">Data Analysis</span><span class="tg">Operations</span><span class="tg">SLA Management</span>
+          <span class="tg">Root Cause Analysis</span><span class="tg">Process Optimization</span><span class="tg">Stakeholder Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sdiv rv"><span class="sl">// 02 — Key Projects</span><div class="sline"></div></div>
+
+  <div class="tl">
+    <div class="tli rv">
+      <div class="tl-l">
+        <span class="tc" style="font-size:1.5rem;line-height:1.1;">E-Commerce<br>App</span>
+        <span class="tp">Personal Project</span>
+        <span class="tt">Full-Stack</span>
+      </div>
+      <div class="tl-r tl-card">
+        <div class="tr">Full-Stack E-Commerce Web Application</div>
+        <div class="td">Spring Boot · React · JWT · PostgreSQL · Docker · Tailwind CSS</div>
+        <ul class="tpts">
+          <li><span>Designed and developed a production-style full-stack application using Spring Boot REST APIs and React frontend with Tailwind CSS.</span></li>
+          <li><span>Implemented <span class="hl">JWT-based authentication</span> and role-based authorization (Admin/Customer), strengthening end-to-end API security.</span></li>
+          <li><span>Applied Controller–Service–Repository architecture using JPA/Hibernate for scalable backend design.</span></li>
+          <li><span>Developed core modules: product catalog, cart management, checkout workflow, and order processing.</span></li>
+          <li><span>Containerized using <span class="hl">Docker and Docker Compose</span>, enabling environment-consistent, streamlined deployments.</span></li>
+          <li><span>Validated API endpoints via Postman and wrote unit tests for service and controller layers.</span></li>
+        </ul>
+        <div class="ttags">
+          <span class="tg">Spring Boot</span><span class="tg">React</span><span class="tg">JWT</span>
+          <span class="tg">PostgreSQL</span><span class="tg">Docker</span><span class="tg">Tailwind CSS</span><span class="tg">Postman</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tli rv">
+      <div class="tl-l">
+        <span class="tc" style="font-size:1.5rem;line-height:1.1;">Employee<br>Mgmt</span>
+        <span class="tp">Personal Project</span>
+        <span class="tt">Backend</span>
+      </div>
+      <div class="tl-r tl-card">
+        <div class="tr">Employee Management System</div>
+        <div class="td">Java · Spring Boot · MySQL · JUnit</div>
+        <ul class="tpts">
+          <li><span>Developed REST APIs with full <span class="hl">CRUD operations</span>, validation, pagination, and global exception handling.</span></li>
+          <li><span>SQL query optimization achieving <span class="hl">30% backend performance improvement</span> through restructuring and indexing.</span></li>
+          <li><span>Implemented JUnit-based unit testing for regression coverage and application stability.</span></li>
+          <li><span>Designed clean architecture following separation of concerns and SOLID principles.</span></li>
+        </ul>
+        <div class="ttags">
+          <span class="tg">Java</span><span class="tg">Spring Boot</span><span class="tg">MySQL</span>
+          <span class="tg">JUnit</span><span class="tg">REST APIs</span><span class="tg">SOLID</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="fl">SAI VARNIK KAMMARI · SOFTWARE ENGINEER · HYDERABAD</div>
+  <div class="fr">
+    <a href="../index.html" class="fa">Home</a>
+    <a href="My_resume.html" class="fa">Resume</a>
+    <a href="https://github.com/Saivarnik12" target="_blank" class="fa">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,.tg,.tl-card').forEach(el=>{el.addEventListener('mouseenter',()=>cr.classList.add('on'));el.addEventListener('mouseleave',()=>cr.classList.remove('on'));});
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
